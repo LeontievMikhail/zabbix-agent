@@ -1,0 +1,13 @@
+version: "3.1"
+services:
+    agent:
+        container_name: zabbix-agent
+        image: zabbix/zabbix-agent2:alpine-5.0.1
+        user: root
+        restart: always
+        privileged: true
+        ports:
+            - '10050:10050'
+        environment: 
+            - ZBX_HOSTNAME=zabbix-monitoring
+            - ZBX_SERVER_HOST=192.168.0.8
